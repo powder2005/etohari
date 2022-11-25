@@ -36,15 +36,72 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+struct node{
+    node * nxt[2];
+    int cnt ;
+    node(){
+        cnt = 0;
+        nxt[0] = nxt[1] = NULL;
+    }
+} * root = new node();
+
+int n, q, XOR, a[MAXN];
+void update(const int &s){
+    node * p = root;
+    for(int i = 30; i >= 0; i --){
+        int x = bit(s, i);
+        if(p -> nxt[x] == NULL)p -> nxt[x] = new node();
+        p = p -> nxt[x];
+        p -> cnt ++;
+    }
+}
+int get(int k){
+    node * p = root;
+    int ans = 0;
+    for(int i = 30; i >= 0; i --){
+        int x = bit(XOR, i);
+        if(p -> nxt[x] != NULL){
+            if(k > p -> nxt[x] -> cnt){
+                k -= p -> nxt[x] -> cnt;
+                p = p -> nxt[x ^ 1];
+                ans += (1 << i);
+            }else {
+                p = p -> nxt[x];
+            }
+        }else {
+            p = p -> nxt[x ^ 1];
+            ans += (1 << i);
+        }
+    }
+    return ans;
+}
 void solve(){
-        
+    cin >> n >> q;
+    for(int i = 1; i <= n; i ++){
+        cin >> a[i];
+        update(a[i]);
+    }
+
+    for(int i = 1; i <= q; i ++){
+        string type;
+        cin >> type;
+        if(type == "FIND"){
+            int k;
+            cin >> k;
+            cout << get(n - k + 1) << el;
+        }else{
+            int x;
+            cin >> x;
+            XOR ^= x;
+        }
+    }
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

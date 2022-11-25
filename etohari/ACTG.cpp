@@ -18,7 +18,7 @@ template < class T > bool minimum(T& a, const T& b) { return b < a ? a = b, 1 : 
 template < class T > bool maximum(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
 
 #define el "\n"
-#define NAME "ETOHARI"
+#define NAME "ACTG"
 #define HACKER "ETOHARI"
 #define fi first        
 #define se second
@@ -36,15 +36,44 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, l, res, cnt[MAXN][26];
+string s;
+map < tuple < int, int, int, int >, bool > check;
 void solve(){
-        
+    cin >> n >> l >> s;
+    s = '$' + s;
+
+    for(int i = 1; i <= n; i ++){
+        cnt[i][0] = cnt[i -  1][0];
+        cnt[i][2] = cnt[i -  1][2];
+        cnt[i][6] = cnt[i -  1][6];
+        cnt[i][19] = cnt[i -  1][19];
+        cnt[i][s[i] - 'A'] ++;
+    }
+
+    for(int i = l; i <= n; i ++){
+        tuple < int, int, int, int > x = {
+            cnt[i][0] - cnt[i - l][0],
+            cnt[i][2] - cnt[i - l][2],
+            cnt[i][6] - cnt[i - l][6],
+            cnt[i][19] - cnt[i - l][19]
+        };
+
+        res += !check[x];
+        check[x] = true;
+    }
+
+    cout << res ;
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
+    freopen(NAME".inp", "r", stdin);
+    freopen(NAME".out", "w", stdout);
+
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

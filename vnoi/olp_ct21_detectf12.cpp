@@ -36,15 +36,43 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, f0, d, x[MAXN], y[MAXN];
+bool check[MAXN];
+vector < int > f1, f2;
+ll dist(int i, int j){
+    return 1ll * (x[i] - x[j]) * (x[i] - x[j]) + 1ll * (y[i] - y[j]) * (y[i] - y[j]);
+}
 void solve(){
-        
+    cin >> n >> f0 >> d;
+    for(int i = 1; i <= n; i ++){
+        cin >> x[i] >> y[i];
+    }
+
+    for(int i = 1; i <= n; i ++){
+        if(i == f0)continue;
+        if(dist(i, f0) < 1ll * d * d){
+            check[i] = 1;
+            f1.emplace_back(i);
+        }
+    }
+
+    for(int x : f1){
+        for(int i = 1; i <= n; i ++){
+            if(check[i] || i == f0)continue;
+            if(dist(i, x) < 1ll * d * d){
+                check[i] = 1;
+                f2.emplace_back(i);
+            }
+        }
+    }
+    cout << len(f1) << " " << len(f2) ;
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

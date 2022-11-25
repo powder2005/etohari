@@ -37,8 +37,16 @@ int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
 void solve(){
-        
-}
+    string a, b;
+    cin >> a >> b;
+    
+    ll ans = 1;
+    for(int i = 0; i < len(a); i ++){
+        ans *= (a[i] == 'X') + (b[i] == 'X');
+        ans %= MOD;
+    }
+    cout << ans << el;
+}   
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);

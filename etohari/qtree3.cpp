@@ -36,15 +36,46 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, q;
+
+int t, pos[MAXN], nxt[MAXN], par[MAXN], heavy[MAXN], depth[MAXN];
+vector < int > adj[MAXN];
+void initDfs(int u){
+    heavy[u] = 1;
+    for(int &v : adj[u]){
+        if(v == par[u])continue;
+        par[v] = u;
+        depth[v] = depth[u] + 1;
+        initDfs(v);
+        heavy[u] += heavy[v];
+        if(heavy[v] > heavy[adj[u][0]]){
+            swap(v, adj[u][0]);
+        }
+    }
+}
+void dfs(int u){
+    pos[u] = ++ t;
+    for(int v : adj[u]){
+        if(v == par[u])continue;
+        nxt[v] = (v == adj[u][0] ? nxt[u] : v);
+        dfs(v);
+    }
+}
 void solve(){
-        
+    cin >> n >> q;
+    for(int i = 1; i < n; i ++){
+        int u, v;
+        cin >> u >> v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

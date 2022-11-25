@@ -36,8 +36,29 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, a[MAXN], id[MAXN];
 void solve(){
-        
+    cin >> n ;
+    for(int i = 1; i <= n; i ++){
+        cin >> a[i] ;
+        id[i] = i;
+    }
+
+    sort(id + 1, id + n + 1, [](int i, int j){
+        return (a[i] < a[j] || (a[i] == a[j] && i < j));
+    });
+    
+    ll res = 0, s = 0;
+    for(int i = 1; i <= n; i ++){
+        if(a[id[i]] != a[id[i - 1]]){
+            s = id[i];
+        }else {
+            res += s * (n - id[i] + 1);
+            s += id[i];
+        }
+    }
+
+    cout << res << el;
 }
 
 signed main() {
@@ -57,3 +78,4 @@ signed main() {
         fb.com/hai290605
             cf: Etohari
                         */
+

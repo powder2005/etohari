@@ -36,15 +36,69 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+
+
+int h, w, n, x[MAXN], y[MAXN], id[MAXN];
+ll f[MAXN], g[MAXN], dp[MAXN];
+
+ll power(ll a, ll exp){
+    ll ans = 1;
+    for(; exp > 0; exp >>= 1, a = (a * a) % MOD){
+        if(exp & 1)ans = (ans * a) % MOD;
+    }
+    return ans;
+}
+void init(){
+    f[0] = 1;
+    for(int i = 1; i < MAXN; i ++){
+        f[i] = f[i - 1] * i;
+        f[i] %= MOD;
+    }
+    g[MAXN - 1] = power(f[MAXN - 1], MOD - 2);
+    for(int i = MAXN - 2; i >= 0; i --){
+        g[i] = g[i + 1] * (i + 1);
+        g[i] %= MOD;
+    }
+}
+ll com(int n, int k){
+    ll ans = f[n];
+    ans *= g[k];
+    ans %= MOD;
+    ans *= g[n - k];
+    ans %= MOD;
+    return ans;
+}
 void solve(){
-        
+    cin >> h >> w >> n ;
+    for(int i = 1; i <= n; i ++){
+        cin >> x[i] >> y[i] ;
+    }
+
+    iota(id + 1, id + n + 1, 1);
+    sort(id + 1, id + n + 1, [](int i, int j){
+        return x[i] < x[j] || (x[i] == x[j] && y[i] < y[j]);
+    });
+
+    x[id[n + 1] = n + 1] = h;
+    y[id[n + 1] = n + 1] = w;
+
+    for(int i = 1; i <= n + 1; i ++){
+        ll s = com(x[id[i]] + y[id[i]] - 2, x[id[i]] - 1);
+        for(int j = 1; j < i; j ++){
+            s -= dp[j] * com(x[id[i]] + y[id[i]] - x[id[j]] - y[id[j]], x[id[i]] - x[id[j]]);
+            s %= MOD;
+        }
+        dp[i] = s;
+    }
+
+    cout << (dp[n + 1] + MOD) % MOD; ;
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
-
+    init();
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

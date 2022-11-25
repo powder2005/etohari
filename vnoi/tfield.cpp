@@ -26,7 +26,9 @@ template < class T > bool maximum(T& a, const T& b) { return a < b ? a = b, 1 : 
 #define countBit(a) __builtin_popcount(a)
 #define sum(l,r,val) accumulate(l,r,val)
 #define len(s) (int)s.size()
-const int MAXN = 1e6 + 10;
+#define x fi
+#define y se
+const int MAXN = 1e3 + 10;
 const int MAXM = 1e6 + 10;
 const int MOD = 1e9 + 7;
 const int INF = 0x3f3f3f3f;
@@ -36,15 +38,44 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+
+struct polygon {
+    vector < point > data;
+    auto & operator [] (int i) { return data[i]; }
+    polygon () = default;
+    polygon (int n) : data(n) {};
+    ld area(){
+        ld ans = 0;
+        for(int i = 0; i < len(data); i ++){
+            ans += (data[i].x - data[(i + 1) % len(data)].x) * 
+                (data[i].y - data[(i + 1) % len(data)].y);
+        }
+        return ans / 2;
+    }
+} a[MAXN];
+
+int n, k;
 void solve(){
-        
+    cin >> n >> k ;
+    for(int i = 0; i < n; i ++){
+        int m;
+        cin >> m;
+        a[i] = polygon(m);
+        for(int j = 0; j < m; j ++){
+            cin >> a[i][j];
+        }
+    }
+
+    sort(a + 1, a + n + 1, [](int i, int j){
+        return a[]
+    });
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

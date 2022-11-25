@@ -36,15 +36,52 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, k, s, m;
+queue < string > qe;
+map < string, vector < string > > adj;
+map < string, int > cnt;
+map < pair < string, string >, int > check;
+vector < string > res;
 void solve(){
-        
+    cin >> n >> k >> s >> m;
+    for(int i = 1; i <= s; i ++){
+        string name; cin >> name;
+        qe.emplace(name);
+        cnt[name] = -INF;
+    }
+
+    for(int i = 1; i <= m; i ++){
+        string s1, s2;
+        cin >> s1 >> s2;
+        if(!check[{s1, s2}]){
+            check[{s1, s2}] = check[{s2, s1}] = true;
+            adj[s1].emplace_back(s2);
+            adj[s2].emplace_back(s1);
+        }
+    }
+
+    while(!qe.empty()){
+        const string &x = qe.front(); qe.pop();
+        res.emplace_back(x);
+        for(const string &p : adj[x]){
+            cnt[p] ++;
+            if(cnt[p] >= k){
+                cnt[p] = -INF;
+                qe.emplace(p);
+            }
+        }
+    }
+    
+    sort(res.begin(), res.end());
+    cout << len(res) << el;
+    for(const string &x : res)cout << x << " ";
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

@@ -1,8 +1,5 @@
 #include "bits/stdc++.h"
-#include "ext/pb_ds/tree_policy.hpp"
-#include "ext/pb_ds/assoc_container.hpp"
 
-using namespace __gnu_pbds;
 using namespace std;
 
 using ll = long long;
@@ -12,7 +9,7 @@ using pll = pair < ll, ll >;
 using pld = pair < ld, ld >;
 using point = pair < ld, ld > ;
 using line = pair < point, point >;
-using ordered_set = tree < int, null_type, less < int >, rb_tree_tag, tree_order_statistics_node_update >;
+using pil = pair < int, ll > ;
 
 template < class T > bool minimum(T& a, const T& b) { return b < a ? a = b, 1 : 0; }
 template < class T > bool maximum(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
@@ -36,15 +33,36 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, h, x[MAXN], y[MAXN], dist[MAXN];
+
+ll get(int u, int v){
+    if(u < v)swap(u, v);
+    if(u == 0 && v == n + 1)return 1ll * h * h;
+
+}
 void solve(){
-        
+    cin >> n >> h;
+
+    for(int i = 1; i <= n; i ++){
+        cin >> x[i] >> y[i];
+    }   
+
+    priority_queue < pii, vector < pii >, greater < pii > >  qe;
+    for(qe.push({0, 0}); !qe.empty(); ){
+        int u = qe.top().se;
+        int du = qe.top().fi;
+        qe.pop();
+
+    }
+
+    cout << (ll)sqrt(dist[n + 1]);
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();
@@ -57,3 +75,4 @@ signed main() {
         fb.com/hai290605
             cf: Etohari
                         */
+    

@@ -36,15 +36,33 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, x[MAXN], y[MAXN];
 void solve(){
-        
+    cin >> n;
+    for(int i = 1; i <= n; i ++){
+        cin >> x[i] >> y[i];
+    }
+
+    sort(x + 1, x + n + 1);
+    sort(y + 1, y + n + 1);
+
+
+    ll sumX = x[1], sumY = y[1], res = 0;
+    for(int i = 2; i <= n; i ++){
+        res += 1ll * x[i] * (i - 1) - sumX;
+        res += 1ll * y[i] * (i - 1) - sumY;
+        sumX += x[i];
+        sumY += y[i];
+    }   
+
+    cout << res ;
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

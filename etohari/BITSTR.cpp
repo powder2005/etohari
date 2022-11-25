@@ -18,7 +18,7 @@ template < class T > bool minimum(T& a, const T& b) { return b < a ? a = b, 1 : 
 template < class T > bool maximum(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
 
 #define el "\n"
-#define NAME "ETOHARI"
+#define NAME "BITSTR"
 #define HACKER "ETOHARI"
 #define fi first        
 #define se second
@@ -36,12 +36,29 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, u, v, dp[MAXN];
 void solve(){
-        
+    cin >> n >> u >> v;
+    dp[0] = 2;
+    for(int i = 1; i <= n; i ++){
+        dp[i] = 0;
+    }
+
+    for(int i = v; i <= n; i ++){
+        for(int j = i - 1; j >= 0; j --){
+            dp[i] += dp[j];
+            dp[i] %= MOD;
+        }
+    }
+
+    cout << dp[n] % MOD << el;
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
+
+    freopen(NAME".inp", "r", stdin);
+    freopen(NAME".out", "w", stdout);
 
     int test = 1;
     cin >> test;

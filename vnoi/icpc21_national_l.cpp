@@ -26,8 +26,8 @@ template < class T > bool maximum(T& a, const T& b) { return a < b ? a = b, 1 : 
 #define countBit(a) __builtin_popcount(a)
 #define sum(l,r,val) accumulate(l,r,val)
 #define len(s) (int)s.size()
-const int MAXN = 1e6 + 10;
-const int MAXM = 1e6 + 10;
+const int MAXN = 1e7 + 10;
+const int MAXM = 3e5 + 10;
 const int MOD = 1e9 + 7;
 const int INF = 0x3f3f3f3f;
 
@@ -36,15 +36,37 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, a[MAXM];
+int cnt[MAXN], f[MAXN];
 void solve(){
-        
+    for(int i = 1; i < MAXN; i ++){
+        f[i] = 1;
+    }
+
+    for(int i = 2; i < MAXN; i ++){
+        if(f[i] == 1){
+            for(int j = i; j < MAXN; j += i){
+                f[j] *= i;
+            }
+        }
+    }
+    
+    ll res = 0;
+
+    cin >> n;
+    for(int i = 1; i <= n; i ++){
+        cin >> a[i];
+        res += cnt[f[a[i]]];
+        cnt[f[a[i]]] ++;
+    }
+    cout << res ;
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

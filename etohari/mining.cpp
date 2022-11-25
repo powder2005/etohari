@@ -36,15 +36,42 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, k, x[MAXN], w[MAXN];
+ll sumW[MAXN], sumWX[MAXN];
 void solve(){
+    cin >> n >> k;
+    for(int i = 1; i <= n; i ++){
+        cin >> x[i] >> w[i];
+    }
+
+    for(int i = 1; i <= n; i ++){
+        sumW[x[i]] += w[i];
+        sumWX[x[i]] += 1ll * x[i] * w[i];
+    }
+
+    for(int i = 1; i <= n; i ++){
+        sumW[x[i]] += sumW[x[i] - 1];
+        sumWX[x[i]] += sumWX[x[i] - 1];
+    }
+    w[i] * x[i] - w[i] * x[j]
+    auto goLeft = [&](int l, int r){
+
+    };
+
+    auto goRight = [&](int l, int r){
+
+    };
+
+    for(int i = 1; i <= n; i ++){
         
+    }
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

@@ -10,6 +10,7 @@ using ld = long double;
 using pii = pair < int, int >;
 using pll = pair < ll, ll >;
 using pld = pair < ld, ld >;
+using pli = pair < ll, int >;
 using point = pair < ld, ld > ;
 using line = pair < point, point >;
 using ordered_set = tree < int, null_type, less < int >, rb_tree_tag, tree_order_statistics_node_update >;
@@ -36,15 +37,35 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, res;
+ll a[MAXN];
 void solve(){
-        
+    cin >> n;
+    for(int i = 1; i <= n; i ++){
+        cin >> a[i];
+    }
+
+    vector < pli > p = {{a[n], n}};
+    for(int i = n; i >= 1; i --){
+        vector < pli > cur = {{a[i - 1], i - 1}};
+        for(auto [val, id] : p){
+            ll GCD = __gcd(val, a[i]);
+            (res += (GCD * (id - cur.back().se)) % MOD) % MOD;
+            if(GCD == cur.back().fi)cur.back().se = id;
+            else cur.emplace_back(GCD, id);
+
+        }
+        swap(cur, p);
+    }
+
+    cout << res ;
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

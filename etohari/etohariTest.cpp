@@ -36,19 +36,22 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
-void solve(){
-        
+void etohariTest(){
+    int n = rand() % 300, m = rand() % 300;
+    int p = rand() 
 }
-
 signed main() {
-    cin.tie(NULL) -> sync_with_stdio(false);
+    srand(0);
 
-    int test = 1;
-    cin >> test;
-
-    for(int i = 1; i <= test; i ++){
-        solve();
-    }
+    while(true){
+        etohariTest();
+        system("etohari.exe");
+        system("etohariTrau.exe");
+        if(system("fc etohari.out etohari.ans")){
+            cout << "Ngu" << el;
+            return ;
+        }else cout << "AC" << el;
+    };
     
     return 0;
 }

@@ -36,15 +36,52 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, x[MAXN], y[MAXN], z[MAXN], id[MAXN];
+ll res, ans, preSum[MAXN], sufSum[MAXN];
 void solve(){
-        
+    cin >> n;
+    for(int i = 1; i <= n; i ++){
+        cin >> x[i] >> y[i] >> z[i];
+    }
+
+    for(int i = 1; i <= n; i ++){
+        id[i] = i;
+        y[i] -= x[i];
+        z[i] -= x[i];
+        res += x[i];
+    }
+
+    sort(id + 1, id + n + 1, [](int i, int j){
+        return y[i] - z[i] < y[j] - z[j]; 
+    });
+    
+    auto cal = [](int x){
+        return 1ll * x * (x + 1) / 2;
+    };
+
+    for(int i = 1; i <= n; i ++){
+        preSum[i] = preSum[i - 1] + y[id[i]];
+    }
+    for(int i = n; i >= 1; i --){
+        sufSum[i] = sufSum[i + 1] + z[id[i]];
+    }
+
+    for(int i = 0; i <= n; i ++){
+        for(int j = i; j <= n; j ++){
+            minimum(ans, preSum[i] - cal(i - 1));
+            minimum(ans, sufSum[j + 1] - cal(n - j - 1));
+            minimum(ans, preSum[i] + sufSum[j + 1] - cal(i - 1) - cal(n - j - 1));
+        }
+    }
+
+    cout << res + ans ;
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

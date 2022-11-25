@@ -1,8 +1,5 @@
 #include "bits/stdc++.h"
-#include "ext/pb_ds/tree_policy.hpp"
-#include "ext/pb_ds/assoc_container.hpp"
 
-using namespace __gnu_pbds;
 using namespace std;
 
 using ll = long long;
@@ -12,7 +9,6 @@ using pll = pair < ll, ll >;
 using pld = pair < ld, ld >;
 using point = pair < ld, ld > ;
 using line = pair < point, point >;
-using ordered_set = tree < int, null_type, less < int >, rb_tree_tag, tree_order_statistics_node_update >;
 
 template < class T > bool minimum(T& a, const T& b) { return b < a ? a = b, 1 : 0; }
 template < class T > bool maximum(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
@@ -36,15 +32,31 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
-void solve(){
-        
+
+void update1(int id, int l, int r, int p){
+    if(l == r){
+        tree[id] = value[p];
+        lazy[id] = 1;
+        return ;
+    }
+    push(id);
+    int m = l + r >> 1;
+    if(p <= m)update1(id << 1, l, m, p);
+    else update1(id << 1, m + 1, r, p);
+    tree[id] = max(tree[id << 1], tree[id << 1 | 1]);
+}
+
+void solve(){ 
+
+
+
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

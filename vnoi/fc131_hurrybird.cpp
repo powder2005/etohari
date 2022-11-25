@@ -37,7 +37,14 @@ int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
 void solve(){
-        
+    ll n, m, x, y;
+    cin >> n >> m >> x >> y;
+    int d = (n % 2) != (m % 2);
+    ll res = min(2 * x, y) * (min(n, m) - 1) + x * (max(n, m) - min(n, m));
+    if(min(n, m) >= 2){
+        res = min(res, y * (min(n, m) - 1) + y * (max(n, m) - min(n, m) - d) + d * x);
+    }
+    cout << res << el;
 }
 
 signed main() {

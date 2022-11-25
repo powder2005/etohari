@@ -28,7 +28,7 @@ template < class T > bool maximum(T& a, const T& b) { return a < b ? a = b, 1 : 
 #define len(s) (int)s.size()
 const int MAXN = 1e6 + 10;
 const int MAXM = 1e6 + 10;
-const int MOD = 1e9 + 7;
+const int MOD = 123456789;
 const int INF = 0x3f3f3f3f;
 
 int d4x[4] = {1, 0, -1, 0}; 
@@ -36,15 +36,48 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, a[MAXN];
+vector < int > prime;
+vector < vector < int > > st;
+void init(){
+    for(int i = 2; i <= 200; i ++){
+        bool ok = false;
+        for(int j = 2; j * j <= i; j ++){
+            if(i % j == 0){
+                ok = true;
+                break;
+            }
+        }
+        if(!ok)prime.emplace_back(i);
+    }
+    for(auto x : prime)cout << x << " ";
+}
+auto operator * (const vector < int > &p){
+
+}
+
 void solve(){
-        
+    cin >> n;
+    for(int i = 1; i <= 3 * n + 1; i ++){
+        cin >> a[i];
+    }
+
+    for(int i = 3 * n + 1; i >= 1; i --){
+        if(a[i] < 0)st.emplace_back(vector < int > (46, 0));
+        else if(a[i] > 0 && a[i - 1] > 0){
+            int p = a[i], q = a[i - 1];
+        }
+    }
+
+    cout << cal(st[0]) ;
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
+    init();
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();
