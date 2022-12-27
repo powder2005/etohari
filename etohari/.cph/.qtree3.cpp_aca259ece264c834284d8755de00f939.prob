@@ -1,0 +1,1 @@
+{"name":"Local: qtree3","url":"d:\\etohari\\etohari\\etohari\\qtree3.cpp","tests":[{"id":1669175277391,"input":"9 8\n1 2\n1 3\n2 4\n2 9\n5 9\n7 9\n8 9\n6 8\n1 3\n0 8\n1 6\n1 7\n0 2\n1 9\n0 2\n1 9","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\etohari\\qtree3.cpp","group":"local","local":true}

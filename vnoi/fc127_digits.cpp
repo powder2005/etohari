@@ -26,56 +26,62 @@ template < class T > bool maximum(T& a, const T& b) { return a < b ? a = b, 1 : 
 #define countBit(a) __builtin_popcount(a)
 #define sum(l,r,val) accumulate(l,r,val)
 #define len(s) (int)s.size()
-const int MAXN = 3e2 + 10;
+const int MAXN = 5e2+ 10;
 const int MAXM = 1e6 + 10;
 const int MOD = 1e9 + 7;
 const int INF = 0x3f3f3f3f;
+const int N = 350;
 
-int d4x[4] = {1, 0, -1, 0}; 
-int d4y[4] = {0, 1, 0, -1};
-int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
-int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
+const int d4x[4] = {1, 0, -1, 0}; 
+const int d4y[4] = {0, 1, 0, -1};
+const int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
+const int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
-int n, b[MAXN];
-string a[MAXN];
-
-bool check(const string &a, const string &b){
-    if(len(a) < len(b))return 0;
-    if(len(a) > len(b))return 1;
-    for(int i = len(a) - 1; i >= 0; i --){
-        if(a[i] > b[i])return 1;
-        if(a[i] < b[i])return 0;
-    }
-    return 0;
-}
-string get(int sumDigit){
-    string ans;
-    while(sumDigit > 0){
-        ans.push_back(min(sumDigit, 9) + '0');
-        sumDigit -= min(sumDigit, 9);
-    }
-    return ans;
-}
-
-string addGet(string a, string b){
-    if(check(a, b))return a;
-   SS
-}
-
+int x, a[MAXN], s[MAXN];
 void solve(){
-    cin >> n;
-    for(int i = 1; i <= n; i ++){
-        cin >> b[i];
+    cin >> x;
+
+    for (int i = N; i >= 1; i --){
+        s[i] = s[i + 1] + a[i];
     }
 
-    a[1] = get(b[1]);
-    for(int i = 2; i <= n; i ++){
-        a[i] = addGet(get(b[i]), a[i - 1]);
+    for (int i = 1; i <= N; i ++){
+        if(a[i] == 9)continue;
+        
+        int sumDigit = x - (s[i] + 1);
+
+        if(sumDigit < 0)continue;
+        
+        int t1 = (sumDigit + 8) / 9;
+        int t2 = (sumDigit - 1) % 9 + 1;
+
+        if (t1 <= i){
+            if (t1 < i){
+                a[i] ++;
+                for (int j = 1; j < i; j ++)a[j] = 0;
+                for (int j = 1; j <= t1; j ++)a[j] = 9;
+                a[t1] = t2;
+                break;
+            }else {
+                if (a[i] + 1 + t2 <= 9){
+                    for (int j = 1; j < t1; j ++)a[j] = 9;
+                    a[i] += 1 + t2;
+                    break;  
+                }
+            }
+
+        }
+
     }
 
-    for(int i = 1; i <= n; i ++){
-        reverse(a[i].begin(), a[i].end());
-        cout << a[i] << el;
+    for (int i = N; i >= 1; i --){
+        if(a[i] != 0){
+            for (int j = i; j >= 1; j --){
+                cout << a[j];
+            }
+            cout << el;
+            break;
+        }
     }
 }
 
@@ -83,7 +89,7 @@ signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    // cin >> test;
+    cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

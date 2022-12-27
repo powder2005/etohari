@@ -1,0 +1,1 @@
+{"name":"Local: MINFACT","url":"d:\\etohari\\etohari\\etohari\\MINFACT.cpp","tests":[{"id":1668519791204,"input":"3\n8 3\n40 5 \n999983 1000000","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\etohari\\MINFACT.cpp","group":"local","local":true}

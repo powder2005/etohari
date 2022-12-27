@@ -1,0 +1,25 @@
+# Fdb version 4
+["pdflatex"] 1670059329 "d:/etohari/etohari/latexEtohari/etohari.tex" "etohari.pdf" "etohari" 1670059329 0
+  "C:/Users/mayti/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1670058120 88371 b965f57369ed322039596060d18f4416 ""
+  "C:/Users/mayti/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1670058133 10805036 d1a9e6e5dc6a68988f5e2d194a21c483 ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/fonts/tfm/vntex/vnr/vnr10.tfm" 1644004041 3980 a378198bbdb2c6fcd4b722396a62ad27 ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr10.pfb" 1644004041 41608 f55c1a79be39d4e7ed224ba660d7353d ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/tex/latex/base/article.cls" 1669844196 20144 d5ecf0a5140c8d8d8b72cbe86e320eff ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/tex/latex/base/fontenc.sty" 1669844196 5119 4ce42f43368f652f9c9522d943cce8e4 ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/tex/latex/base/ifthen.sty" 1669844196 5319 48d7f3cfa322abd2788e3c09d624b922 ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/tex/latex/base/inputenc.sty" 1669844196 5048 84b05796b49b69e2d4257d537721c960 ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/tex/latex/base/size10.clo" 1669844196 8448 c33a4e1cb35cee9b33c2b21033b73e39 ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1666810012 30426 f2fb69fcda4dc35ed0b7dee211bce679 ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5cmr.fd" 1368738347 1333 ab1c3d512aa3d88df568aed3641db58f ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/tex/latex/vntex/vietnam.sty" 1368738347 2477 91784aa2c9213f74609391e3cae65a13 ""
+  "C:/Users/mayti/AppData/Local/Programs/MiKTeX/tex/latex/vntex/vncaps.tex" 1368738347 3273 a55ebdb07413d2fea580f210e3c0b252 ""
+  "d:/etohari/etohari/latexEtohari/etohari.tex" 1670059327 152 9a21da2a0d43de4de053033e6fff128c ""
+  "etohari.aux" 1670059329 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "etohari.tex" 1670059327 152 9a21da2a0d43de4de053033e6fff128c ""
+  (generated)
+  "etohari.aux"
+  "etohari.log"
+  "etohari.pdf"
+  (rewritten before read)

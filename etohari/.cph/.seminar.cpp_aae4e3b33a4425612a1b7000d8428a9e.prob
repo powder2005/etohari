@@ -1,0 +1,1 @@
+{"name":"Local: seminar","url":"d:\\etohari\\etohari\\etohari\\seminar.cpp","tests":[{"id":1669684430044,"input":"6\n1 5 2 9\n2 4 5 8\n3 6 7 11\n7 10 12 16\n8 11 13 17\n9 12 14 18","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\etohari\\seminar.cpp","group":"local","local":true}

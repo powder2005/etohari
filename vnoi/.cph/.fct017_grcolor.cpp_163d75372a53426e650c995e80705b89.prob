@@ -1,0 +1,1 @@
+{"name":"Local: fct017_grcolor","url":"d:\\etohari\\etohari\\vnoi\\fct017_grcolor.cpp","tests":[{"id":1669890121726,"input":"7 7\n1 2\n1 4\n2 3\n3 6\n4 5\n5 6\n6 7\n3\n7 3 1\n5 1 2\n5 0 3","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\vnoi\\fct017_grcolor.cpp","group":"local","local":true}

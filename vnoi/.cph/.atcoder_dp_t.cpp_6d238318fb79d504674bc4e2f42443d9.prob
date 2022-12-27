@@ -1,0 +1,1 @@
+{"name":"Local: atcoder_dp_t","url":"d:\\etohari\\etohari\\vnoi\\atcoder_dp_t.cpp","tests":[{"id":1671855329779,"input":"4\n<><\n","output":""},{"id":1671855334302,"input":"5\n<<<<\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\vnoi\\atcoder_dp_t.cpp","group":"local","local":true}

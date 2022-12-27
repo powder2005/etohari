@@ -36,9 +36,9 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
-int n, m, p, k, nxt[111111][26];
+int n, m, p, k, nxt[111111][26], dist[MAXN][MAXN];
 string s, base;
-map < int, int > dist[MAXN];
+
 bool check[MAXN][MAXN];
 
 int get(int i, int j){
@@ -49,7 +49,6 @@ void solve(){
     s = '$' + s;
 
     base = "DRUL";
-
     for(char ch : base){
         nxt[k + 1][ch - 'A'] = k + 1;
     }
@@ -66,46 +65,48 @@ void solve(){
         check[x][y] = true;
     }
 
-    set < tuple < int, int, int > > qe;
-    for(dist[get(1, 1)][0] = 0, qe.insert({0, 1, 1}); !qe.empty(); ){
-        int d = get < 0 > (*qe.begin());
-        int x = get < 1 > (*qe.begin());
-        int y = get < 2 > (*qe.begin());
-
-        qe.erase(qe.begin());
-
-        for(int i = 0; i < 4; i ++){
-            int newX = x + d4x[i];
-            int newY = y + d4y[i];
-            if(newX < 1 || newX > n || newY < 1 || newY > m)continue;
-            if(check[newX][newY]) continue;
-
-            int newNext = nxt[d + 1][base[i] - 'A'];
-            if(newNext > k)continue;
-
-            if(!dist[get(newX, newY)].count(newNext)){
-                dist[get(newX, newY)][newNext] = dist[get(x, y)][d] + 1;
-                qe.insert({newNext, newX, newY});
-            }else {
-                minimum(dist[get(newX, newY)][newNext], dist[get(x, y)][d] + 1);
-            }
+    for(int i = 1; i <= n * m; i ++){
+        for(int j = 0; j <= n * m; j ++){
+            dist[i][j] = k + 1;
         }
     }
 
-    int res = -1;
-    
-    for(pii pr : dist[get(n, m)]){
-        res = max(res, k - pr.se);
-    }
+    queue < pii > qe;
+    for(qe.emplace(1, 0), dist[1][0] = 0; !qe.empty(); qe.pop()){
+        int p = qe.front().fi;
+        int t = qe.front().se;
+        int x = (p - 1) / m + 1;
+        int y = (p - 1) % m + 1;
 
-    cout << res ;
+        if (t >= n + m - 1)break;
+
+        for(int i = 0; i < 4; i ++){
+            int u = x + d4x[i];
+            int v = y + d4y[i];
+
+            if(u < 1 || u > n || v < 1 || v > m)continue;
+
+            if(check[u][v])continue;
+
+            if(!minimum(dist[get(u, v)][t + 1], nxt[dist[p][t] + 1][base[i] - 'A']))continue;
+            
+            if(get(u, v) == n * m){
+                cout << k - t - 1 ;
+                return ;
+            }
+
+            qe.emplace(get(u, v), t + 1);
+        }
+    }
+    
+    cout << -1 ;
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
-    freopen(NAME".inp", "r", stdin);
-    freopen(NAME".out", "w", stdout);
+    // freopen(NAME".inp", "r", stdin);
+    // freopen(NAME".out", "w", stdout);
 
     int test = 1;
     // cin >> test;
@@ -113,7 +114,7 @@ signed main() {
     for(int i = 1; i <= test; i ++){
         solve();
     }
-    
+
     return 0;
 }
 /* 

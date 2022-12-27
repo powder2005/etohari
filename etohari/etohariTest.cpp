@@ -30,6 +30,7 @@ const int MAXN = 1e6 + 10;
 const int MAXM = 1e6 + 10;
 const int MOD = 1e9 + 7;
 const int INF = 0x3f3f3f3f;
+const char B64[65] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 int d4x[4] = {1, 0, -1, 0}; 
 int d4y[4] = {0, 1, 0, -1};
@@ -37,9 +38,18 @@ int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
 void etohariTest(){
-    int n = rand() % 300, m = rand() % 300;
-    int p = rand() 
+    ofstream cout("etohari.inp");
+    int n = rand() % 8 + 1;
+    vector < int > p(n);
+    iota(p.begin(), p.end(), 1);
+    cout << n << el;
+    for (int i = 100; i >= 0; i --){
+        swap(p[rand() % n], p[rand() % n]);
+    }
+    for (auto x : p)
+        cout << x << " ";
 }
+
 signed main() {
     srand(0);
 
@@ -49,7 +59,7 @@ signed main() {
         system("etohariTrau.exe");
         if(system("fc etohari.out etohari.ans")){
             cout << "Ngu" << el;
-            return ;
+            return 0;
         }else cout << "AC" << el;
     };
     
@@ -60,3 +70,4 @@ signed main() {
         fb.com/hai290605
             cf: Etohari
                         */
+ 

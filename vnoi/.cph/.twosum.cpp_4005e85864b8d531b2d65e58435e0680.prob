@@ -1,0 +1,1 @@
+{"name":"Local: twosum","url":"d:\\etohari\\etohari\\vnoi\\twosum.cpp","tests":[{"id":1669650996513,"input":"6\n2\n10\n3\n2\n5\n1\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\vnoi\\twosum.cpp","group":"local","local":true}

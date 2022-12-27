@@ -1,0 +1,1 @@
+{"name":"Local: rmq_board","url":"d:\\etohari\\etohari\\vnoi\\rmq_board.cpp","tests":[{"id":1672041280258,"input":"7 10\n2 3\n177013 4 5 6\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\vnoi\\rmq_board.cpp","group":"local","local":true}

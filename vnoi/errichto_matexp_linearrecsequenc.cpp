@@ -36,15 +36,101 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
-void solve(){
+class matrix {
+    public:
+        vector < vector < long long > > data;
 
+        int row() const { return len(data); }
+        int col() const { return len(data[0]); }
+
+        auto & operator [] (const int &i) { return data[i]; }
+        
+        matrix () = default;
+        matrix (const int &r, const int &c) : data(r, vector < long long > (c, 0)){ }
+        matrix (const vector < vector < long long > > &d) : data(d){ }
+
+        static matrix identity(int n) {
+            matrix a = matrix(n, n);
+            while (n--) a[n][n] = 1;
+            return a;
+        }
+
+        matrix operator * (matrix &b) {
+            matrix a = *this;
+            assert(a.col() == b.row()); 
+
+            matrix c(a.row(), b.col());
+            for(int i = 0; i < a.row(); i ++){
+                for(int j = 0; j < b.col(); j ++){
+                    for(int k = 0; k < a.col(); k ++){
+                        c[i][j] += a[i][k] * b[k][j];
+                        c[i][j] %= MOD;
+                    }
+                }
+            }
+
+            return c;
+        }
+
+        matrix pow(long long exp) {
+            assert(row() == col());  
+
+            matrix base = *this, ans = identity(row());
+            for (; exp > 0; exp >>= 1, base = base * base)
+                if (exp & 1) ans = ans * base;
+            return ans;
+        }
+
+};
+
+void solve(){
+    ll n, k; cin >> n >> k;
+    // cerr << n << " " << k << el;
+    vector < ll > a(n), c(n);
+    for(auto &val : a)cin >> val;
+    for(auto &val : c)cin >> val;
+
+    if (k < n){
+        cout << a[k];
+        return ;
+    }
+
+    ll p, q, r; cin >> p >> q >> r;
+    // cerr << p << " " << q << " " << r << el;
+    matrix etohari(n + 3, 1);
+    for (int i = 0; i < n; i ++){
+        etohari[n - i - 1][0] = a[i];
+    }
+    etohari[n][0] = 1;
+    etohari[n + 1][0] = n;
+    etohari[n + 2][0] = n * n;
+    
+    matrix base(n + 3, n + 3);
+    for (int i = 0; i < n; i ++){
+        base[0][i] = c[i];
+    }
+    base[0][n] = p;
+    base[0][n + 1] = q;
+    base[0][n + 2] = r;
+
+    for (int i = 1; i < n; i ++){
+        base[i][i - 1] = 1;
+    }
+    base[n][n] = 1;
+    base[n + 1][n] = base[n + 1][n + 1] = 1;
+    base[n + 2][n] = base[n + 2][n + 2] = 1;
+    base[n + 2][n + 1] = 2;
+
+    base = base.pow(k - n + 1) * etohari;
+    
+    cout << base[0][0];
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
         solve();

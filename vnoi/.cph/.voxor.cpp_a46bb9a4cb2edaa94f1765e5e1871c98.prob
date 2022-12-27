@@ -1,0 +1,1 @@
+{"name":"Local: voxor","url":"d:\\etohari\\etohari\\vnoi\\voxor.cpp","tests":[{"id":1668910143806,"input":"4 9\n1 2 3 4\nFIND 1\nFIND 2\nFIND 3\nFIND 4\nXOR 6\nFIND 1\nFIND 2\nFIND 3\nFIND 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\vnoi\\voxor.cpp","group":"local","local":true}

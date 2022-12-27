@@ -1,0 +1,1 @@
+{"name":"Local: v8org","url":"d:\\etohari\\etohari\\vnoi\\v8org.cpp","tests":[{"id":1670693288556,"input":"3\n14\n1 1 2 2 3 2 3 6 6 6 7 4 7\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\vnoi\\v8org.cpp","group":"local","local":true}

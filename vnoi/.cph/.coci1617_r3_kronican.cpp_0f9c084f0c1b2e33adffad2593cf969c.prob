@@ -1,0 +1,1 @@
+{"name":"Local: coci1617_r3_kronican","url":"d:\\etohari\\etohari\\vnoi\\coci1617_r3_kronican.cpp","tests":[{"id":1669826351511,"input":"5 2\n0 5 4 3 2\n7 0 4 4 4\n3 3 0 1 2\n4 3 1 0 5\n4 5 5 5 0","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\vnoi\\coci1617_r3_kronican.cpp","group":"local","local":true}

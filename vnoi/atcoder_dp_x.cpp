@@ -26,8 +26,8 @@ template < class T > bool maximum(T& a, const T& b) { return a < b ? a = b, 1 : 
 #define countBit(a) __builtin_popcount(a)
 #define sum(l,r,val) accumulate(l,r,val)
 #define len(s) (int)s.size()
-const int MAXN = 1e6 + 10;
-const int MAXM = 1e6 + 10;
+const int MAXN = 1e3 + 10;
+const int MAXM = 1e4 + 10;
 const int MOD = 1e9 + 7;
 const int INF = 0x3f3f3f3f;
 
@@ -36,8 +36,29 @@ int d4y[4] = {0, 1, 0, -1};
 int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, id[MAXN], w[MAXN], s[MAXN], v[MAXN];
+ll dp[MAXN][2 * MAXM];
 void solve(){
+    cin >> n;
+    for(int i = 1; i <= n; i ++){
+        cin >> w[i] >> s[i] >> v[i] ;
+    }
 
+    iota(id + 1, id + n + 1, 1);
+    sort(id + 1, id + n + 1, [](int i, int j){
+        return w[i] + s[i] < w[j] + s[j];
+    });
+
+    for(int i = 1; i <= n; i ++){
+        for(int j = 0; j < 2 * MAXM;  j++){
+            dp[i][j] = dp[i - 1][j];
+        }
+        for(int j = 0; j <= s[id[i]]; j ++){
+            maximum(dp[i][j + w[id[i]]], dp[i - 1][j] + v[id[i]]);
+        }   
+    }
+    
+    cout << *max_element(dp[n], dp[n] + MAXM * 2) ;
 }
 
 signed main() {
@@ -56,5 +77,6 @@ signed main() {
     Hi I'm Powder
         fb.com/hai290605
             cf: Etohari
+    
+    
                         */
-dp[i][w] là

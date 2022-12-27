@@ -1,0 +1,1 @@
+{"name":"Local: DIP","url":"d:\\etohari\\etohari\\ksdtt\\DIP.cpp","tests":[{"id":1670549848862,"input":"9 2\n2 5 4 1 2 3 6 2 4\n0 8\n2 6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\ksdtt\\DIP.cpp","group":"local","local":true}

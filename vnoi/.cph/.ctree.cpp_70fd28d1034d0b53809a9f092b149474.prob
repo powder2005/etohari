@@ -1,0 +1,1 @@
+{"name":"Local: ctree","url":"d:\\etohari\\etohari\\vnoi\\ctree.cpp","tests":[{"id":1670694262101,"input":"8\n1 2\n1 3\n1 4\n1 5\n5 6\n5 7\n5 8\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\vnoi\\ctree.cpp","group":"local","local":true}

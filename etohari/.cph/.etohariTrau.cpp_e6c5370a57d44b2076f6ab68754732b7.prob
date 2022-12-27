@@ -1,0 +1,1 @@
+{"name":"Local: etohariTrau","url":"d:\\etohari\\etohari\\etohari\\etohariTrau.cpp","tests":[{"id":1669600930522,"input":"7\n5 6 2 3 7 1 4","output":"609262214"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\etohari\\etohariTrau.cpp","group":"local","local":true}

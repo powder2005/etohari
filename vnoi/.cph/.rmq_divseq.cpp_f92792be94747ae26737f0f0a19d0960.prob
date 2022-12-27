@@ -1,0 +1,1 @@
+{"name":"Local: rmq_divseq","url":"d:\\etohari\\etohari\\vnoi\\rmq_divseq.cpp","tests":[{"id":1672063123215,"input":"8 4\n1 3 2 2 4 5 4 6\n1 8\n1 4\n2 7\n4 6\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\vnoi\\rmq_divseq.cpp","group":"local","local":true}

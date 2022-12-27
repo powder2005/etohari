@@ -1,0 +1,1 @@
+{"name":"Local: fc128_sequenceweight","url":"d:\\etohari\\etohari\\vnoi\\fc128_sequenceweight.cpp","tests":[{"id":1669249773471,"input":"2\n4\n1 2 1 1\n4\n1 2 3 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\vnoi\\fc128_sequenceweight.cpp","group":"local","local":true}

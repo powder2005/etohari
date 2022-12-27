@@ -1,0 +1,1 @@
+{"name":"Local: rmq_simpseq","url":"d:\\etohari\\etohari\\vnoi\\rmq_simpseq.cpp","tests":[{"id":1672074248000,"input":"5\n4 3 6 4 2\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\vnoi\\rmq_simpseq.cpp","group":"local","local":true}

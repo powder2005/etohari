@@ -1,0 +1,24 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25) (preloaded format=pdflatex 2022.12.3)  3 DEC 2022 16:19
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**d:/etohari/etohari/tex.tex
+(d:/etohari/etohari/tex.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2022-11-02>)
+! Emergency stop.
+<*> d:/etohari/etohari/tex.tex
+                              
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 19 strings out of 475281
+ 396 string characters out of 2774065
+ 341677 words of memory out of 3000000
+ 21603 multiletter control sequences out of 15000+600000
+ 469259 words of font info for 28 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 13i,0n,12p,58b,10s stack positions out of 10000i,1000n,20000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

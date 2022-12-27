@@ -31,22 +31,85 @@ const int MAXM = 1e6 + 10;
 const int MOD = 1e9 + 7;
 const int INF = 0x3f3f3f3f;
 
-int d4x[4] = {1, 0, -1, 0}; 
-int d4y[4] = {0, 1, 0, -1};
-int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
-int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
+const int d4x[4] = {1, 0, -1, 0}; 
+const int d4y[4] = {0, 1, 0, -1};
+const int d8x[8] = {0, 1, 1, 1, 0, -1, -1, -1};
+const int d8y[8] = {1, 1, 0, -1, -1, -1, 0, 1};
 
+int n, s[MAXN], c[MAXN];
+vector < int > adj[MAXN];
+bool check[MAXN];
+void input(){
+    cin >> n;
+    for (int i = 1; i <= n; i ++){
+        cin >> s[i];
+    }
+    for (int i = 1; i <= n; i ++){
+        cin >> c[i];
+    }
+    for (int i = 1; i < n; i ++){
+        int u, v; cin >> u >> v;
+        adj[u].emplace_back(v);
+        adj[v].emplace_back(u);
+    }
+}
+
+int minPrime[MAXN];
+vector < int > prime[MAXN];
+void setting(){
+    iota(minPrime + 1, minPrime + MAXN, 1);
+    for (int i = 2; i * i < MAXN; i ++){
+        if (minPrime[i] == i){
+            for (int j = i * i; j < MAXN; j += i){
+                if(minPrime[j] == j)minPrime[j] = i;
+            }
+        }
+    }
+
+    for (int i = 1; i <= n; i ++){
+        while (c[i] > 1){
+            prime[minPrime[c[i]]].emplace_back(i);
+            while (minPrime[c[i]] == minPrime[c[i] / minPrime[c[i]]]){
+                c[i] /= minPrime[c[i]];
+            }
+            c[i] /= minPrime[c[i]];
+        }
+    }
+}
+
+ll f[MAXN], g[MAXN], res = -1ll * INF * INF;
+void dfs(int u, int par = 0){
+    for (int v : adj[u]){
+        if (!check[v] && v == par)continue;
+        dfs(v, u);
+    }
+    
+}
 void solve(){
-
+    memset(check, true, sizeof true);
+    f[0] = -INF;
+    for (int i = 2; i < MAXN; i ++){
+        for (int u : prime[i]){
+            check[u] = false;
+        }
+        for (int u : prime[i]){
+            if (!check[u]){
+                dfs(u, 0);
+            }
+        }
+    }
+    cout << res ;
 }
 
 signed main() {
     cin.tie(NULL) -> sync_with_stdio(false);
 
     int test = 1;
-    cin >> test;
+    // cin >> test;
 
     for(int i = 1; i <= test; i ++){
+        input();
+        setting();
         solve();
     }
     
@@ -56,4 +119,5 @@ signed main() {
     Hi I'm Powder
         fb.com/hai290605
             cf: Etohari
+            2 * (f[x] + f[y] + f[z]) + 3 * s[u]
                         */

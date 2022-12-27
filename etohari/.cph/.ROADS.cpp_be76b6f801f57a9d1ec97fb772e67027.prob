@@ -1,0 +1,1 @@
+{"name":"Local: ROADS","url":"d:\\etohari\\etohari\\etohari\\ROADS.cpp","tests":[{"id":1670358645658,"input":"8 12 1 8\n1 2 1\n1 3 3\n2 3 3\n3 1 3 \n3 5 3\n3 7 3\n4 6 1\n6 2 3\n6 8 3\n7 8 1\n7 6 2\n4 2 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\etohari\\ROADS.cpp","group":"local","local":true}

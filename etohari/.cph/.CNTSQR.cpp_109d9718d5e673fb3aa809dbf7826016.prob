@@ -1,0 +1,1 @@
+{"name":"Local: CNTSQR","url":"d:\\etohari\\etohari\\etohari\\CNTSQR.cpp","tests":[{"id":1670288044904,"input":"3 4\n0 1 3\n1 2 4 8","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\etohari\\CNTSQR.cpp","group":"local","local":true}

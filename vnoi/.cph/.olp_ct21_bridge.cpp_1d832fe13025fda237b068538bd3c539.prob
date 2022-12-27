@@ -1,0 +1,1 @@
+{"name":"Local: olp_ct21_bridge","url":"d:\\etohari\\etohari\\vnoi\\olp_ct21_bridge.cpp","tests":[{"id":1669212538715,"input":"3\nOOXXXOOOXO \nXXXOXXXOOX \nXXOXXOXO \nOOXOXXXX \nOOOXXXOXOXOX \nXXXOOOXXXOXO","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\vnoi\\olp_ct21_bridge.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: EUREKA","url":"d:\\etohari\\etohari\\etohari\\EUREKA.cpp","tests":[{"id":1668571799742,"input":"5\n12 18 4 2 -1 -1 10 8 3 3 -1 -1 6 4 -1 -1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\etohari\\etohari\\etohari\\EUREKA.cpp","group":"local","local":true}
