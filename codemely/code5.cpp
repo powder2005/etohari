@@ -1,29 +1,41 @@
-// Code mely
-// quy hoạch động cái túi phiên bản không giới hạn số lần chọn mỗi vật
-
+// code mely
+// Chúc mừng năm mới
 #include "bits/stdc++.h"
 
 using namespace std;
 
-const int MAXN = 1e3 + 10;
-const int MAXM = 1e3 + 10;
+int sum_of_digit(int n) {
+    // hàm lấy tổng các chữ số
+    int s = 0; // lưu tổng các chữ số;
+    while (n > 0) {
+        s += n % 10;
+        n /= 10;
+    }
+    return s;
+}
 
-int n, m, w[MAXN], v[MAXN], dp[MAXM];
+int sum_of_digit_square(int n) {
+    // hàm lấy tổng bình phương các chữ số
+    int s = 0; // lưu tổng bình phương các chữ số
+    while (n > 0) {
+        s += (n % 10) * (n % 10);
+        n /= 10;
+    }
+    return s;
+}
 
 int main() {
-    cin >> n >> m;
-    for (int i = 1; i <= n; i++) {
-        cin >> w[i] >> v[i];
-    }
+    int max_number = 10000;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = w[i]; j <= m; j ++){
-            dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
+    cout << "Các số đặc biệt: " << endl;
+
+    for (int number = 1; number <= max_number; number++) {
+        // kiêm tra điều kiện và in ra số đó
+        if (number % sum_of_digit(number) == 0
+            && number % sum_of_digit_square(number) == 0) {
+            cout << number << " ";
         }
     }
-
-    int answer = dp[m];
-    cout << answer << "\n";
 
     return 0;
 }
